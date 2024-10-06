@@ -30,9 +30,12 @@ namespace KirbyNightmareInDreamLand.Controllers
 
         public void RegisterCommand(Keys key, ICommand command, ICommand stop, ExecutionType type)
         {
+            // Adds the command into the right mapping based on execution type
             if (type == ExecutionType.Pressed)
             {
                 pressedKeys.Add(key, command);
+
+                // Adds a corresponding stop command if it is a pressed key and has one
                 if (stop != null) stopKeys.Add(key, stop);
             }
             else if (type == ExecutionType.StartingPress)

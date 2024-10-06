@@ -113,7 +113,7 @@ namespace KirbyNightmareInDreamLand
             keyboard.RegisterCommand(Keys.Left, new KirbyMoveLeftCommand(kirby, Keys.Left, keyboard), new KirbyRunningLeftCommand(this, keyboard, Keys.Left, kirby), ExecutionType.Pressed);
 
             // this is hard-coded bc it needs to know the keybind to attack to check if it needs to slide
-            keyboard.RegisterCommand(Keys.Down, new KirbyCrouchAndSlideCommand(kirby, Keys.Z, keyboard, this), new KirbyStopCrouchCommand(kirby), ExecutionType.Pressed);
+            keyboard.RegisterCommand(Keys.Down, new KirbyCrouchCommand(kirby, Keys.Down, keyboard), new KirbySlideCommand(this, keyboard, Keys.Down, Keys.Z, kirby), ExecutionType.Pressed);
             keyboard.RegisterCommand(Keys.Up, new KirbyFloatCommand(kirby), null, ExecutionType.Pressed);
             keyboard.RegisterCommand(Keys.X, new KirbyJumpCommand(kirby), null, ExecutionType.Pressed);
 
